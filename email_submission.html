@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Speak For Climate - About Us</title>
+		<title>Speak For Climate - Email Now</title>
 		<meta name="description" content="
 		Speak for Climate is an initiative that was borne out of a desire to see greater collaboration and transparency in the public consultation process within the environmental community in Singapore." />
 		<meta content="
@@ -53,19 +53,17 @@
 				<!-- Main -->
 					<section id="main" class="wrapper">
 						<div class="inner">
-							<h1 class="major">About Us</h1>
-								<div class="row" style="margin:auto; width:70%;">
-							<span class="image fit"><img src="images/logo.jpg" alt="" /></span>
+							<h1 class="major">Prepare your feedback</h1>
+								<div class="row">
+							<p>As you read through ideas, feel free to craft your own response to NCCS in the form below. When you click the button, it will launch your e-mail app and you can send your feedback directly from there!</p>
 							</div>
 							<form> 
-								<input type="text" id="name" name="name" >
-								<input type="email" id="email" name="email">
-								<textarea rows="5"></textarea>
+								<label id="name">Your name please</label>
+								<input type="text" id="name" name="name" placeholder="Your name will form as part of the e-mail subject">
+								<label id="ideas">Ideas</label>
+								<textarea id="ideas" rows="10" placeholder="Compile the points that resonate with you here. This will be the body of your e-mail to NCCS"></textarea>
 							</form>
-							<button type="submit" class="btn btn-primary" onclick="sendMail()">Button Text</button>
-
-							<p>We see these goals in the long term - the NCCS public consultation aspect is just a start. <br>
-							We are contactable at <a href="mailto:speakforclimate@gmail.com">speakforclimate@gmail.com</a>!<br> Let us know if you have any feedback or questions, or want to join our team!  
+							<button type="submit" class="btn btn-primary" onclick="sendMail()">E-mail NCCS now!</button>
 							</p>
 						</div>
 					</section>
@@ -89,12 +87,12 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			
 			<script>
 			function sendMail() {
-				var name = $('#contact #name').val();
-				var email = $('#contact #email').val();
-				var message = $('#contact textarea').val();
-				window.location.href = 'mailto:mail@company.com?subject=The subject - ' + name + ' (' + email + ')' + '&body=' + message;
+				var name = $('input').val();
+				var message = $('textarea').val();
+				window.location.href = 'mailto:nccs_contact@pmo.gov.sg?subject=Public Consultation on Developing Singapore’s Long-Term Low Emissions Strategy - From ' + name + '&body=' + message;
 			};
 			</script>
 

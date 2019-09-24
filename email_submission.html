@@ -116,7 +116,7 @@
 				var name = $('input').val();
 				var idea = $('textarea').val();
 				var send_message = messages.join("%0D%0A");
-				window.location.href = 'mailto:nccs_contact@pmo.gov.sg?subject=Public Consultation on Developing Singapore’s Long-Term Low Emissions Strategy - From ' + name + '&body=' + idea + send_message;
+				window.location.href = 'mailto:nccs_contact@pmo.gov.sg?subject=Public Consultation on Developing Singapore’s Long-Term Low Emissions Strategy - From ' + name + '&body=' + idea "%0D%0A" + send_message;
 			};
 			</script>
 

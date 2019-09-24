@@ -21,6 +21,7 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-142866432-2"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
 		<script>
 		window.dataLayer = window.dataLayer || [];
 		function gtag(){dataLayer.push(arguments);}
@@ -62,7 +63,25 @@
 								<input type="text" id="name" name="name" placeholder="Your name will form as part of the e-mail subject">
 								<label id="ideas">Ideas</label>
 								<textarea id="ideas" rows="10" placeholder="Compile the points that resonate with you here. This will be the body of your e-mail to NCCS"></textarea>
-							</form>
+								<input type="checkbox" id="A" value="Improving energy efficiency across sectors">
+								<label for="A">Improving energy efficiency across sectors</label>
+								<br>
+								<input class="message" type="checkbox" id="B" value="Encouraging responsible climate action through carbon pricing">
+								<label for="B">Encouraging responsible climate action through carbon pricing</label>
+								<br>
+								<input class="message" type="checkbox" id="C" value="Reducing emissions from power generation">
+								<label for="C">Reducing emissions from power generation</label>
+								<br>
+								<input class="message" type="checkbox" id="D" value="Deploying emerging low-carbon technologies">
+								<label for="D">Deploying emerging low-carbon technologies</label>
+								<br>
+								<input class="message" type="checkbox" id="E" value="Encouraging collective climate action">
+								<label for="E">Encouraging collective climate action</label>
+								<br>
+								<input class="message" type="checkbox" id="F" value="Tapping on green growth opportunities">
+								<label for="F">Reducing emissions from power generation</label>
+								</form>
+
 							<button type="submit" class="btn btn-primary" onclick="sendMail()">E-mail NCCS now!</button>
 							</p>
 						</div>
@@ -87,12 +106,17 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-			
 			<script>
+
 			function sendMail() {
+				var messages = [];
+				$('.message:checkbox:checked').each(function(i,e){
+				messages.push( $(e).attr('value') )
+				})
 				var name = $('input').val();
-				var message = $('textarea').val();
-				window.location.href = 'mailto:nccs_contact@pmo.gov.sg?subject=Public Consultation on Developing Singapore’s Long-Term Low Emissions Strategy - From ' + name + '&body=' + message;
+				var idea = $('textarea').val();
+				var send_message = messages.join("%0D%0A");
+				window.location.href = 'mailto:nccs_contact@pmo.gov.sg?subject=Public Consultation on Developing Singapore’s Long-Term Low Emissions Strategy - From ' + name + '&body=' + idea + send_message;
 			};
 			</script>
 
